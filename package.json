@@ -1,0 +1,22 @@
+{
+  "name": "tfg-senderos-tenerife",
+  "version": "1.0.0",
+  "description": "Trabajo de Fin de Grado - Alberto Dorta Darias",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alu0100785630/TFG-Senderos-Tenerife.git"
+  },
+  "author": "Alberto Dorta Darias",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alu0100785630/TFG-Senderos-Tenerife/issues"
+  },
+  "homepage": "https://github.com/alu0100785630/TFG-Senderos-Tenerife#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
