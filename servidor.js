@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 //Paquete necesario para poder usar nuestras variables de entorno
 const dotenv = require('dotenv');
 //Le decimos al paquete donde están ubicadas nuestras variables
@@ -7,6 +9,20 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './.env' })
 
 const app = require('./app');
+
+const database_link = process.env.DATABASE;
+
+mongoose.connect(database_link, { useNewUrlParser: true,  useUnifiedTopology: true});
+
+const database = mongoose.connection;
+database.once('open', _ => {
+  console.log('Conectado a la base de datos 🗸');
+});
+
+database.on('error', err => {
+  console.error('Error en la conexión a la base de datos:', err);
+});
+
 
 // Iniciar Servidor
 const port = process.env.PORT;
