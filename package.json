@@ -4,7 +4,8 @@
   "description": "Trabajo de Fin de Grado - Alberto Dorta Darias",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon servidor.js"
+    "dev": "nodemon servidor.js",
+    "prod": "NODE_ENV=production nodemon servidor.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/alu0100785630/TFG-Senderos-Tenerife#readme",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7"

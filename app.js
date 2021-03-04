@@ -7,7 +7,7 @@ const morgan = require('morgan');
 const app = express();
 
 //Con el argumento especificamos como queremos que sea el loggin
-app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 //Esto es un Middleware, es una función que puede modificar los datos entrantes de una petición
 //La petición pasa a través de esto mientras se procesa
