@@ -12,7 +12,7 @@ const app = require('./app');
 
 const database_link = process.env.DATABASE;
 
-mongoose.connect(database_link, { useNewUrlParser: true,  useUnifiedTopology: true});
+mongoose.connect(database_link, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true});
 
 const database = mongoose.connection;
 database.once('open', _ => {
