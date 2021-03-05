@@ -1,9 +1,14 @@
 const Sendero = require('./../schema/sendero');
+const APIOperations = require('./../api/apiOperations');
 
 exports.allSenderos = async(req, res) => {
   try {
 
-    const senderos = await Sendero.find();
+    //El encadenamieno funciona ya que estamos retornando this en las funciones de la API.
+    const operations = new APIOperations(Sendero.find(), req.query).filtrar().ordenar().seleccionarCampos();
+    
+    //Ahora senderos serán los resultados filtrados
+    const senderos = await operations.query;
 
     res.status(200).json({
       status: 'success',
