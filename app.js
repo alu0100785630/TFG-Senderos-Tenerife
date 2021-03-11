@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 app.use(express.json());
 
 app.use('/api/senderos', rutasSenderos);
-// app.use('/api/usuarios', rutasUsuarios);
+app.use('/api/usuarios', rutasUsuarios);
 
 app.get('/', (req, res) => {
   res.status(200).send('Test para comprobar que el servidor');
