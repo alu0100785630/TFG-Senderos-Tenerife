@@ -25,7 +25,7 @@ exports.allSenderos = async(req, res) => {
   }
 };
 
-exports.singleSendero = async(req, res) => {
+exports.singleSendero = async(req, res, next) => {
   try {
     const sendero = await Sendero.findById(req.params.id);
 
@@ -36,14 +36,15 @@ exports.singleSendero = async(req, res) => {
       }
     });
   } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err
-    });
+    err.message = `No se encuentra un sendero con ese ID.`;
+    err.status = 'fail';
+    err.statusCode = 404;
+    //Lo manda a nuestro controlador de errores globales gracias a next (globalErrorControl).
+    return next(err);
   }
 };
 
-exports.createSendero = async(req, res) => {
+exports.createSendero = async(req, res, next) => {
   try {
     const newSendero = await Sendero.create(req.body);
 
@@ -54,14 +55,14 @@ exports.createSendero = async(req, res) => {
       }
     });
   } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err
-    });
+    err.message = `Bad request! Error en el lado del cliente.`;
+    err.status = 'fail';
+    err.statusCode = 400;
+    return next(err);
   }
 };
 
-exports.updateSendero = async(req, res) => {
+exports.updateSendero = async(req, res, next) => {
   try {
     //Buscamos el documento a actualizar y luego actualizarlo
     const sendero = await Sendero.findByIdAndUpdate(req.params.id, req.body, {
@@ -77,14 +78,14 @@ exports.updateSendero = async(req, res) => {
       }
     });
   } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err
-    });
-  }
+    err.message = `No se encuentra un sendero con ese ID.`;
+    err.status = 'fail';
+    err.statusCode = 404;
+    return next(err);
+  } (globalErrorControl)
 };
 
-exports.deleteSendero = async(req, res) => {
+exports.deleteSendero = async(req, res, next) => {
   try {
     await Sendero.findByIdAndDelete(req.params.id);
 
@@ -93,9 +94,9 @@ exports.deleteSendero = async(req, res) => {
       data: null
     });
   } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err
-    });
+    err.message = `No se encuentra un sendero con ese ID.`;
+    err.status = 'fail';
+    err.statusCode = 404;
+    return next(err);
   }
 };
