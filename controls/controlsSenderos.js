@@ -82,7 +82,7 @@ exports.updateSendero = async(req, res, next) => {
     err.status = 'fail';
     err.statusCode = 404;
     return next(err);
-  } (globalErrorControl)
+  }
 };
 
 exports.deleteSendero = async(req, res, next) => {
