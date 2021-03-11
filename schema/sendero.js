@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const slugify = require('slugify');
 
 const senderoSchema = new mongoose.Schema(
   {
@@ -60,6 +61,16 @@ const senderoSchema = new mongoose.Schema(
   },
 
 );
+
+//Document Middleware => un middleware que se ejecuta para los documentos
+//En este caso, antes de guardar el documento le pone un slug.
+senderoSchema.pre('save', function(next) {
+  //this es el documento que se va a guardar en la base de datos
+  //creamos un string que se puede poner en la url con el nombre del sendero
+  this.slug = slugify(this.name, { lower: true });
+  //Necesitamos llamar a next() para que sigan corriendo los middleware
+  next();
+});
 
 const Sendero = mongoose.model('Sendero', senderoSchema);
 
