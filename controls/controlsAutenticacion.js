@@ -38,6 +38,11 @@ exports.login = async(req, res, next) => {
     //Leemos el email y la contraseña desde el body de la petición
     const { email, password } = req.body;
     
+
+    if (!email || !password ){
+      throw new Error('Email o contraseña vacíos.');
+    }
+
     const usuario = await Usuario.findOne({ email: email, password: password }).select('+password');
 
     const token = jwt.sign({ id: usuario._id }, process.env.JWT_SECRET, {
@@ -50,7 +55,9 @@ exports.login = async(req, res, next) => {
       name: usuario.name
     });
   } catch (err) {
-    err.message = `Email o contraseña incorrectos!`;
+    if (err.message != 'Email o contraseña vacíos.')
+    err.message = `Email o contraseña incorrectos!`;  
+
     err.status = 'fail';
     err.statusCode = 400;
     return next(err);
