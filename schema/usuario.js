@@ -38,6 +38,14 @@ const usuarioSchema = new mongoose.Schema({
   }
 });
 
+usuarioSchema.pre('save', async function(next) {
+  //Realizar encriptado de contraseña aquí
+
+  //Confirmación de contraseña a undefined para que no se muestre
+  this.passwordConfirm = undefined;
+  next();
+});
+
 const Usuario = mongoose.model('Usuario', usuarioSchema);
 
 module.exports = Usuario;
