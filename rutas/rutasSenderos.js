@@ -1,11 +1,12 @@
 const express = require('express');
 const controlsSenderos = require('./../controls/controlsSenderos');
+const auth = require('./../controls/controlsAutenticacion');
 
 const router = express.Router();
 
 router
   .route('/')
-  .get(controlsSenderos.allSenderos)
+  .get(auth.protect, controlsSenderos.allSenderos)
   .post(controlsSenderos.createSendero);
 
 router
