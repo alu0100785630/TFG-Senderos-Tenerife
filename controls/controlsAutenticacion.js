@@ -29,6 +29,7 @@ exports.registro = async(req, res, next) => {
       }
     });
   } catch (err) {
+    //Esto significa que existe un duplicated key
     if (err.code == 11000) {
       err.message = `Ya existe un usuario con esos valores.`;
     }
