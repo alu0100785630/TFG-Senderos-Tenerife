@@ -29,7 +29,13 @@ exports.registro = async(req, res, next) => {
       }
     });
   } catch (err) {
-    err.message = `Bad request! Error en el lado del cliente.`;
+    if (err.code == 11000) {
+      err.message = `Ya existe un usuario con esos valores.`;
+    }
+    else {
+      err.message = `Bad request! Error en el lado del cliente.`;
+    }
+
     err.status = 'fail';
     err.statusCode = 400;
     return next(err);
