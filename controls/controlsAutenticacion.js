@@ -121,7 +121,7 @@ exports.restrict = (...roles) => {
     // Si el role del usuario actual (req.user.role) no está en el array de
     // los permitidos, lanzo un error.
       if (!roles.includes(req.user.role)) {
-        throw new Error('Permiso denegado para el role');
+        throw new Error('Permiso denegado! (Capacidad del rol de usuario limitada)');
       }
       next();
     }

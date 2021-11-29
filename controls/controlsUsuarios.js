@@ -10,6 +10,30 @@ const objectFilter = (ob, ...fields) => {
   return newObj;
 };
 
+
+exports.allUsuarios = async(req, res) => {
+  try {
+    const usuarios = await Usuario.find();
+
+    res.status(200).json({
+      status: 'success',
+      amount: usuarios.length,
+      data: {
+        usuarios
+      }
+    });
+  } 
+  catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
+};
+
+
+
+
 //ACTUALIZAR USUARIO
 exports.updateUser = async (req, res, next) => {
   try {
@@ -33,6 +57,22 @@ exports.updateUser = async (req, res, next) => {
       data: {
         user: updatedUser
       }
+    });
+  }
+  catch(err) {
+    return next(err);
+  }
+};
+
+//ELIMINAR USUARIO
+exports.deleteUser = async (req, res, next) => {
+  //Realmente no eliminamos el usuario, simplemente desactivamos la cuenta.
+  try {
+    await Usuario.findByIdAndUpdate(req.user.id, { activo: false });
+    res.status(204).json({
+      status: 'success',
+      //No mandamos ningún dato
+      data: null
     });
   }
   catch(err) {

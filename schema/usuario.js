@@ -35,6 +35,13 @@ const usuarioSchema = new mongoose.Schema({
       },
       message: 'Las contraseñas no coinciden.'
     }
+  },
+  //Para activar/desactivar cuentas de usuario
+  //select: false para que sea una propiedad invisible en la API. Solo será visible en la base de datos.
+  activo: {
+    type: Boolean,
+    default: true,
+    select: false
   }
 });
 
@@ -43,6 +50,15 @@ usuarioSchema.pre('save', async function(next) {
 
   //Confirmación de contraseña a undefined para que no se muestre
   this.passwordConfirm = undefined;
+  next();
+});
+
+//Middleware Query
+//Lo ponemos con la expresión regular para que pille todas las queries (findById, findAndUpdate...)
+usuarioSchema.pre(/^find/, function(next) {
+  // this apunta a la query actual
+  // No muestra en la API los usuarios inactivos (activo != false)
+  this.find({ activo: { $ne: false } });
   next();
 });
 
