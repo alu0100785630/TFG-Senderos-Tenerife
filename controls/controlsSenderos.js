@@ -91,7 +91,7 @@ exports.deleteSendero = async(req, res, next) => {
 
     res.status(204).json({
       status: 'success',
-      data: null
+      data: 'El sendero ha sido eliminado correctamente'
     });
   } catch (err) {
     err.message = `No se encuentra un sendero con ese ID.`;

@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken');
 exports.registro = async(req, res, next) => {
   try {
     //Con este código solo permitimos accesso a los datos que realmente necesitamos para crear un usuario.
+    // role : req.body.role,
     const newUsuario = await Usuario.create({
       name: req.body.name,
       email: req.body.email,
@@ -107,4 +108,25 @@ exports.protect = async(req, res, next) => {
   catch (err) {
     return next(err);
   }
+};
+
+exports.restrict = (...roles) => {
+  // Este middleware funciona porque lo ejecutamos siempre después del
+  // middleware protect, que es el que inicia la sesión del usuario.
+  //...roles ==> crea un array con los parámetros que le pasemos
+  return (req, res, next) => {
+    // roles = ['usuario', 'guia', 'admin']
+    try {
+    // Daremos acceso a la ruta si el tipo de usuario está dentro de los parámetros
+    // Si el role del usuario actual (req.user.role) no está en el array de
+    // los permitidos, lanzo un error.
+      if (!roles.includes(req.user.role)) {
+        throw new Error('Permiso denegado para el role');
+      }
+      next();
+    }
+    catch(err) {
+      return next(err);
+    }
+  };
 };

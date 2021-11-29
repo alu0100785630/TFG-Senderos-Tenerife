@@ -6,8 +6,12 @@ const router = express.Router();
 
 router
   .route('/')
-  .get(auth.protect, controlsSenderos.allSenderos)
-  .post(controlsSenderos.createSendero);
+  .get(controlsSenderos.allSenderos)
+  .post(
+    auth.protect,
+    auth.restrict('admin', 'guia'),
+    controlsSenderos.createSendero
+  );
 
 router
   .route('/:id')
