@@ -1,9 +1,12 @@
 const express = require('express');
-const controlsAtutentticacion = require('./../controls/controlsAutenticacion');
+const controlsUsuarios = require('./../controls/controlsUsuarios');
+const auth = require('./../controls/controlsAutenticacion');
 
 const router = express.Router();
 
-router.post('/registro', controlsAtutentticacion.registro);
-router.post('/login', controlsAtutentticacion.login);
+router.post('/registro', auth.registro);
+router.post('/login', auth.login);
+
+router.patch('/update-user', auth.protect, controlsUsuarios.updateUser);
 
 module.exports = router;
