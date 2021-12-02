@@ -121,7 +121,12 @@ exports.protect = async(req, res, next) => {
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
       //Creamos un array con split y cogemos el segundo elemento que será el token
       token = req.headers.authorization.split(' ')[1];
-    } 
+    } else if (req.cookies && req.cookies.jwt) {
+      token = req.cookies.jwt;
+    } else if (req.headers.cookie && req.headers.cookie.startsWith('jwt=')) {
+      token = req.headers.cookie.replace('jwt=', '');
+    }
+
     //Comprobamos si el token existe
     if (!token) {
       throw new Error('No ha hecho log in. Por favor inicie sesión para obtener acceso.');

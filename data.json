@@ -1,0 +1,53 @@
+[
+  {
+    "name": "Ruta de Masca",
+    "duration": 4,
+    "difficulty": "dificil",
+    "gradeAverage": 4.7,
+    "gradeQuantity": 23,
+    "price": 35,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
+    "image": "masca.png",
+    "startDate": "2021-06-13,09:00",
+    "mainLocation" : {
+      "type": "Point",
+      "coordinadas": [-80.185942, 25.774772],
+      "description": "Miami, USA",
+      "address": "301 Biscayne Blvd, Miami, FL 33132, USA"
+    },
+    "routeLocations": [
+      {
+        "description": "Lummus Park Beach",
+        "type": "Point",
+        "coordinadas": [-80.128473, 25.781842]
+      },
+      {
+        "description": "Islamorada",
+        "type": "Point",
+        "coordinadas": [-80.647885, 24.909047]
+      }
+    ]
+  },
+  {
+    "name": "Arenas Negras",
+    "duration": 2,
+    "difficulty": "facil",
+    "gradeAverage": 4.8,
+    "gradeQuantity": 12,
+    "price": 25,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
+    "image": "arenas-negras.png",
+    "startDate": "2021-08-19,10:00"
+  },
+  {
+    "name": "Alto de Guajara",
+    "duration": 6,
+    "difficulty": "facil",
+    "gradeAverage": 4.5,
+    "gradeQuantity": 17,
+    "price": 12,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
+    "image": "guajara.png",
+    "startDate": "2022-03-05,08:00"
+  }
+]
