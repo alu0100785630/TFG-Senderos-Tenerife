@@ -6,6 +6,36 @@ const { promisify } = require('util');
 
 const jwt = require('jsonwebtoken');
 
+//Los JWT deben ser guardados en los HTTPOnly Cookie, pero ahora mismo solo estamos
+//mandando el token como un simple string en nuestra respuesta JSON.
+const cookieJWT = (usuario, statusCode, token, res) => {
+
+  const cookieOpt = {
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
+    httpOnly: true
+  }
+
+  //1st arg: name of the cookie
+  //2nd arg: data of the cookie
+  //3rd arg: cookie options
+  res.cookie('jwt', token, cookieOpt);
+
+  // Eliminar la contraseña del output
+  usuario.password = undefined;
+
+  res.status(statusCode).json({
+    status: 'success',
+    token,
+    data: {
+      usuario
+    }
+  });
+};
+
+
+
 exports.registro = async(req, res, next) => {
   try {
     //Con este código solo permitimos accesso a los datos que realmente necesitamos para crear un usuario.
@@ -20,6 +50,8 @@ exports.registro = async(req, res, next) => {
     const token = jwt.sign({ id: newUsuario._id }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIRES_IN
     });
+
+    cookieJWT(newUsuario, 201, token, res);
 
     res.status(201).json({
       status: 'success',
@@ -61,11 +93,15 @@ exports.login = async(req, res, next) => {
       expiresIn: process.env.JWT_EXPIRES_IN
     });
 
+    cookieJWT(usuario, 200, token, res);
+    
     res.status(201).json({
       status: 'success',
       token,
       name: usuario.name
     });
+    
+
   } catch (err) {
     if (err.message != 'Email o contraseña vacíos.')
     err.message = `Email o contraseña incorrectos!`;  
