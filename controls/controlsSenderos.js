@@ -1,5 +1,6 @@
 const Sendero = require('./../schema/sendero');
 const APIOperations = require('./../api/apiOperations');
+const Review = require('../schema/review');
 
 exports.allSenderos = async(req, res) => {
   try {
@@ -27,7 +28,7 @@ exports.allSenderos = async(req, res) => {
 
 exports.singleSendero = async(req, res, next) => {
   try {
-    const sendero = await Sendero.findById(req.params.id);
+    const sendero = await Sendero.findById(req.params.id).populate('reviews');
 
     res.status(200).json({
       status: 'success',

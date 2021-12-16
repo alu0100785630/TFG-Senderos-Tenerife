@@ -66,7 +66,7 @@ const senderoSchema = new mongoose.Schema(
         enum: ['Point']
       },
       //Esta sintaxis nos dice que espera un array de números. Latitud y altitud
-      coordinadas: [Number],
+      coordenadas: [Number],
       description: String,
       address: String
     },
@@ -79,16 +79,39 @@ const senderoSchema = new mongoose.Schema(
           default: 'Point',
           enum: ['Point']
         },
-        coordinadas: [Number],
+        coordenadas: [Number],
         address: String,
         description: String
       }
     ],
 
+    //Queremos referenciar un Documento Usuario en el schema del Sendero
+    //Le decimos que esperamos un ID de MongoDB en cada uno de los elementos del array
+    guias: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Usuario'
+      }
+    ]
+
   },
+  {
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true }
+  }
 
 );
 
+//Virtual Populating
+senderoSchema.virtual('reviews', {
+  ref: 'Review',
+  foreignField: 'sendero',
+  localField: '_id'
+});
+
+// senderoSchema.virtual('durationWeeks').get(function() {
+//   return this.gradeAverage * 7;
+// });
 //Document Middleware => un middleware que se ejecuta para los documentos
 //En este caso, antes de guardar el documento le pone un slug.
 senderoSchema.pre('save', function(next) {
@@ -96,6 +119,20 @@ senderoSchema.pre('save', function(next) {
   //creamos un string que se puede poner en la url con el nombre del sendero
   this.slug = slugify(this.name, { lower: true });
   //Necesitamos llamar a next() para que sigan corriendo los middleware
+  next();
+});
+
+
+
+
+//Añadimos la referencia (populate query) POPULATING
+//Se ejecuta a todas las querys a la base de datos que empiezan for find (allSenderos y singleSendero)
+senderoSchema.pre('/^find/', function(next) {
+  this.populate({
+    path: 'guias',
+    //No nos interesa el campo __v en la referencia
+    select: '-__v'
+  });
   next();
 });
 

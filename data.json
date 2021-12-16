@@ -11,7 +11,7 @@
     "startDate": "2021-06-13,09:00",
     "mainLocation" : {
       "type": "Point",
-      "coordinadas": [-80.185942, 25.774772],
+      "coordenadas": [-80.185942, 25.774772],
       "description": "Miami, USA",
       "address": "301 Biscayne Blvd, Miami, FL 33132, USA"
     },
@@ -19,12 +19,12 @@
       {
         "description": "Lummus Park Beach",
         "type": "Point",
-        "coordinadas": [-80.128473, 25.781842]
+        "coordenadas": [-80.128473, 25.781842]
       },
       {
         "description": "Islamorada",
         "type": "Point",
-        "coordinadas": [-80.647885, 24.909047]
+        "coordenadas": [-80.647885, 24.909047]
       }
     ]
   },

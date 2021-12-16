@@ -10,6 +10,10 @@ const controladorErrores = require('./utilities/globalErrorControl');
 const rutasSenderos = require('./rutas/rutasSenderos');
 const rutasUsuarios = require('./rutas/rutasUsuarios');
 
+//Si tiene body y coincide con los datos del Schema, crea una review.
+//Si no tiene body, allReviews
+const rutasReviews = require('./rutas/rutasReviews');
+
 const app = express();
 
 //Con el argumento especificamos como queremos que sea el loggin
@@ -21,6 +25,7 @@ app.use(express.json());
 
 app.use('/api/senderos', rutasSenderos);
 app.use('/api/usuarios', rutasUsuarios);
+app.use('/api/reviews', rutasReviews);
 
 app.get('/', (req, res) => {
   res.status(200).send('Test para comprobar que el servidor');
