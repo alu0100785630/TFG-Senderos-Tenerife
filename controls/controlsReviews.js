@@ -2,7 +2,15 @@ const Review = require('./../schema/review');
 
 exports.allReviews = async(req, res) => {
   try {
-    const reviews = await Review.find();
+
+    //Comprobamos si hay un id en los parámetros. Si lo hay solo accedemos a las reviews de ese sendero.
+    //Creamos un objeto filter para usar en la query find()
+
+    let filter = {};
+    if (req.params.senderoId) filter = { sendero : req.params.senderoId };
+
+    
+    const reviews = await Review.find(filter);
 
     res.status(200).json({
       status: 'success',
