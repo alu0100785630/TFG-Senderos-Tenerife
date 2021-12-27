@@ -102,6 +102,19 @@ const senderoSchema = new mongoose.Schema(
 
 );
 
+//Optimizar las búsquedas gracias a los index
+// Puede tener valores de 1 o -1
+// 1 ASC order
+// -1 DESC order
+
+//Funciona para querys complejas e individualmente
+//GET /api/senderos?price[lt]=1000&gradeAverage[gte]=4.7
+senderoSchema.index({ price: 1, gradeAverage: -1 });
+
+//Añadimos el slug ya que es único para hacer queries a los senderos.
+senderoSchema.index({ slug: 1 });
+
+
 //Virtual Populating
 senderoSchema.virtual('reviews', {
   ref: 'Review',

@@ -9,6 +9,9 @@ exports.allSenderos = async(req, res) => {
     const operations = new APIOperations(Sendero.find(), req.query).filtrar().ordenar().seleccionarCampos();
     
     //Ahora senderos serán los resultados filtrados
+
+    //SEE INDEXES
+    // const senderos = await operations.query.explain(); 
     const senderos = await operations.query;
 
     res.status(200).json({
