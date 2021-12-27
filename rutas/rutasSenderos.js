@@ -1,5 +1,6 @@
 const express = require('express');
 const controlsSenderos = require('./../controls/controlsSenderos');
+const controlsReviews = require('./../controls/controlsReviews');
 const auth = require('./../controls/controlsAutenticacion');
 const rutasReviews = require('./../rutas/rutasReviews');
 
@@ -25,7 +26,23 @@ router
 router
   .route('/:id')
   .get(controlsSenderos.singleSendero)
-  .patch(controlsSenderos.updateSendero)
-  .delete(controlsSenderos.deleteSendero);
+  .patch(
+    auth.protect,
+    auth.restrict('admin'),
+    controlsSenderos.updateSendero
+  )
+  .delete(
+    auth.protect,
+    auth.restrict('admin'),
+    controlsSenderos.deleteSendero
+  );
+
+router
+  .route('/:senderoId/reviews')
+  .post(
+    auth.protect,
+    auth.restrict('usuario'),
+    controlsReviews.crearReview
+  );
 
 module.exports = router;
