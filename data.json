@@ -3,8 +3,6 @@
     "name": "Ruta de Masca",
     "duration": 4,
     "difficulty": "dificil",
-    "gradeAverage": 4.7,
-    "gradeQuantity": 23,
     "price": 35,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
     "image": "masca.png",

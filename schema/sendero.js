@@ -29,7 +29,10 @@ const senderoSchema = new mongoose.Schema(
       type: Number,
       default: 4.5,
       min: [1, 'Rating must be above 1.0'],
-      max: [5, 'Rating must be below 5.0']
+      max: [5, 'Rating must be below 5.0'],
+      //set es una functión que se ejecuta cada vez que un valor se establece en este campo.
+      //Le pasamos un callback
+      set: val => Math.round(val * 10) / 10   //4.666666 *10 = 46.6666, round = 47, /10 = 4.7
     },
     gradeQuantity: {
       type: Number,
