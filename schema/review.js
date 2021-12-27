@@ -37,6 +37,9 @@ const reviewSchema = new mongoose.Schema(
 
 );
 
+//Para evitar duplicados
+reviewSchema.index({ sendero: 1, usuario: 1 }, { unique: true });
+
 
 //Vamos a hacer “populating" automáticamente con las reviews con los datos del sendero y del usuario cada vez
 //que haya una query a una review.
