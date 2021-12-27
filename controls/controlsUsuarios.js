@@ -79,3 +79,23 @@ exports.deleteUser = async (req, res, next) => {
     return next(err);
   }
 };
+
+
+exports.perfilUsuario = async (req, res, next) => {
+  try {
+    const usuario = await Usuario.findById(req.user.id);
+
+    res.status(200).json({
+      status: 'success',
+      data: {
+        usuario
+      }
+    });
+  } catch (err) {
+    err.message = `No se encuentra el usuario.`;
+    err.status = 'fail';
+    err.statusCode = 404;
+    //Lo manda a nuestro controlador de errores globales gracias a next (globalErrorControl).
+    return next(err);
+  }
+};

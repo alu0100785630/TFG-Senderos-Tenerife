@@ -16,4 +16,6 @@ router.post('/login', auth.login);
 router.patch('/update-user', auth.protect, controlsUsuarios.updateUser);
 router.delete('/delete-user', auth.protect, controlsUsuarios.deleteUser);
 
+router.get('/perfil', auth.protect, controlsUsuarios.perfilUsuario );
+
 module.exports = router;
