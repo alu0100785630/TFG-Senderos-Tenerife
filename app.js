@@ -15,6 +15,8 @@ const rutasUsuarios = require('./rutas/rutasUsuarios');
 //Si no tiene body, allReviews
 const rutasReviews = require('./rutas/rutasReviews');
 
+const rutasVisual = require('./rutas/rutasVisual');
+
 const app = express();
 
 app.set('view engine', 'pug');
@@ -30,16 +32,18 @@ if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 //La petición pasa a través de esto mientras se procesa
 app.use(express.json());
 
+app.use('/', rutasVisual);
+
 app.use('/api/senderos', rutasSenderos);
 app.use('/api/usuarios', rutasUsuarios);
 app.use('/api/reviews', rutasReviews);
 
-app.get('/', (req, res) => {
+// app.get('/', (req, res) => {
   // res.status(200).send('Test para comprobar que el servidor');
   //En vez de llamar a .json llamamos a .render
   //No necesitamos especificar la extensión del fichero.
-  res.status(200).render('base');
-});
+  // res.status(200).render('base');
+// });
 
 //Como los middleware se ejecutan en orden, ponemos el de manejo de errores aquí,
 //así los errores que se produzcan en los controladores vendrán a este middleware.

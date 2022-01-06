@@ -30,5 +30,32 @@
         "coordenadas": [28.28959256584547, -16.86173388796352]
       }
     ]
+  },
+  {
+    "name": "Erjos",
+    "duration": 3,
+    "difficulty": "medio",
+    "price": 12,
+    "description": "<p>Las conocidas como Charcas de Erjos son un accidente geográfico en el que la actividad humana ha influido pero que es de lo más peculiar.</p><p>El resultado, unas charcas que hoy son permanentes y que sirven de abrigo a importantes comunidades de aves, tanto autóctonas como migratorias hacia o desde África. Entre las especies más destacadas encontramos águilas pescadoras (conocidas como “guincho”).</p>",
+    "image": "erjos.png",
+    "startDate": "2022-07-26,09:00",
+    "mainLocation" : "Los Silos",
+    "routeLocations": [
+      {
+        "description": "Sendero Monte del agua",
+        "type": "Point",
+        "coordenadas": [28.329383223356103, -16.808767270904436]
+      },
+      {
+        "description": "Macizo de Teno",
+        "type": "Point",
+        "coordenadas": [28.335162725202903, -16.826233816548246]
+      },
+      {
+        "description": "Galería Los Cochinos",
+        "type": "Point",
+        "coordenadas": [28.33828283247018, -16.818001702912987]
+      }
+    ]
   }
 ]
