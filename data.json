@@ -4,48 +4,31 @@
     "duration": 4,
     "difficulty": "dificil",
     "price": 35,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
-    "image": "masca.png",
+    "description": "<p>Caminata que baja por el barranco de Masca para acabar en la playa. Una ruta de duración de 4 horas de preciosos paisajes volcánicos.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed congue felis. Aliquam ut auctor lectus. Donec blandit auctor facilisis. Morbi semper nibh vitae eros condimentum semper.</p><p>Etiam scelerisque mi eu aliquam iaculis. Praesent in velit convallis, tristique augue ac, rutrum velit. Morbi hendrerit magna orci, at gravida lectus molestie vitae. Quisque maximus condimentum condimentum. Nam mattis lorem ut convallis bibendum. Integer non pharetra felis, tincidunt ullamcorper odio.</p>",
+    "image": "ruta-de-masca.png",
     "startDate": "2021-06-13,09:00",
-    "mainLocation" : {
-      "type": "Point",
-      "coordenadas": [-80.185942, 25.774772],
-      "description": "Miami, USA",
-      "address": "301 Biscayne Blvd, Miami, FL 33132, USA"
-    },
+    "mainLocation" : "Buenavista del Norte",
     "routeLocations": [
       {
-        "description": "Lummus Park Beach",
+        "description": "Mandala de Masca",
         "type": "Point",
-        "coordenadas": [-80.128473, 25.781842]
+        "coordenadas": [28.309460687392317, -16.840064186701742]
       },
       {
-        "description": "Islamorada",
+        "description": "Comienzo del barranco",
         "type": "Point",
-        "coordenadas": [-80.647885, 24.909047]
+        "coordenadas": [28.30224836315322, -16.840136361422225]
+      },
+      {
+        "description": "Mirador (Viewpoint)",
+        "type": "Point",
+        "coordenadas": [28.295030137913955, -16.855405518912136]
+      },
+      {
+        "description": "Playa de Masca",
+        "type": "Point",
+        "coordenadas": [28.28959256584547, -16.86173388796352]
       }
     ]
-  },
-  {
-    "name": "Arenas Negras",
-    "duration": 2,
-    "difficulty": "facil",
-    "gradeAverage": 4.8,
-    "gradeQuantity": 12,
-    "price": 25,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
-    "image": "arenas-negras.png",
-    "startDate": "2021-08-19,10:00"
-  },
-  {
-    "name": "Alto de Guajara",
-    "duration": 6,
-    "difficulty": "facil",
-    "gradeAverage": 4.5,
-    "gradeQuantity": 17,
-    "price": 12,
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt euismod pharetra. Nulla sed pretium sapien, quis fringilla ante. Sed non est a libero sodales cursus.",
-    "image": "guajara.png",
-    "startDate": "2022-03-05,08:00"
   }
 ]

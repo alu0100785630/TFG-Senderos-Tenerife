@@ -1,0 +1,15 @@
+header
+  nav.nav.container
+    a.nav__logo-link(href='./')
+      .header-logo
+        img(src='/img/menu/teide_logo.png' alt='TFG Senderos Tenerife logo')
+    if usuario
+      .user-links
+        a.user-link.profile(href='/perfil')
+          img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
+          span.user-name Alberto
+        a.user-link.log-out Log out
+    else
+      .login-links
+        a.login-link.login(href='/login') Iniciar Sesión
+        a.login-link.sign-up(href='#') Registrarse

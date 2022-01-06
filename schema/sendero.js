@@ -61,17 +61,7 @@ const senderoSchema = new mongoose.Schema(
       required: [true, 'El sendero debe tener una fecha y hora de comienzo']
     },
     mainLocation: {
-      //Tipo y Coordinadas
-      type: {
-        type: String,
-        //También puede ser Polygon, Lines.. pero nos interesa Point. (Coordinada)
-        default: 'Point',
-        enum: ['Point']
-      },
-      //Esta sintaxis nos dice que espera un array de números. Latitud y altitud
-      coordenadas: [Number],
-      description: String,
-      address: String
+      type: String
     },
     //Así se crean Embedded Documents. Especificando un array de objetos, se
     //crearán nuevos documentos dentro del documento padre (en este caso Sendero)

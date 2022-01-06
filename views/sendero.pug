@@ -1,0 +1,63 @@
+extends base
+
+block append head
+  script(src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js')
+  link(href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet')
+
+block content
+  section.sendero-wrapper
+    .hero
+      img.hero__image(src='/img/senderos/ruta-de-masca.png' alt='Nombre Sendero Image')
+    
+    .sendero-container.container
+      .sendero-hero
+        h1.sendero-hero__title Ruta de Masca
+        .sendero-hero__data
+          .sendero-hero__data--rating
+            - let average = 3.8
+            - let rating = (average / 5) * 100
+            - let amountOfReviews = 16
+            .reviews-avg-n= `${average} (${amountOfReviews})`
+            .reviews-avg
+              .empty-stars
+              .full-stars(style=`width: ${rating}%`)
+          
+          .sendero-hero__data--book
+            .sendero-hero__data--book-price 35€
+            a.book-button(href="")  Reservar
+      
+      .sendero-content
+        h2.sendero-content__about Acerca de la ruta
+        .sendero-content__desc
+          .sendero-content__desc--description
+            p Caminata que baja por el barranco de Masca para acabar en la playa. Una ruta de duración de 4 horas de preciosos paisajes volcánicos.
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed congue felis. Aliquam ut auctor lectus. Donec blandit auctor facilisis. Morbi semper nibh vitae eros condimentum semper. 
+            p Etiam scelerisque mi eu aliquam iaculis. Praesent in velit convallis, tristique augue ac, rutrum velit. Morbi hendrerit magna orci, at gravida lectus molestie vitae. Quisque maximus condimentum condimentum. Nam mattis lorem ut convallis bibendum. Integer non pharetra felis, tincidunt ullamcorper odio. 
+          .sendero-content__desc--details
+            .sendero-content__desc--details-w
+              .sendero-content__desc--details-w-difficulty Dificultad : 
+                span.dificil Difícil
+              .sendero-content__desc--details-w-location Buenavista del Norte
+              .sendero-content__desc--details-w-date 10 de Junio de 2021, 9:00 GMT
+              .sendero-content__desc--details-w-duration 4 horas
+            .sendero-content__desc--details-map
+              a.go-to-map(href="#tfg-map")  Ver Mapa
+      
+      .sendero-reviews
+        each val in [1, 2 ,3, 4]
+          .sendero-reviews__single-review
+            .sendero-reviews__single-review--user
+              img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
+              .user-name Alberto
+            p.sendero-reviews__single-review--rev Hemos disfrutado mucho, magníficas vistas del barranco y un gran premio en forma de playa la final de la caminata. Muy recomendado!!
+            .sendero-reviews__single-review--rating
+              .reviews-avg
+                .empty-stars
+                .full-stars(style=`width: ${rating}%`)
+      
+      .sendero-map
+        //locations == ${JSON.stringify(sendero.routeLocations)}
+        #tfg-map(data-locations='[{"description": "Lummus Park Beach","type": "Point", "coordenadas":[28.309491710167855, -16.839843207638094]},{"description": "Islamorada","type": "Point","coordenadas":[28.302406481640904, -16.840276255961005]},{"description": "Lummus Park Beach","type": "Point", "coordenadas":[28.29463412507137, -16.855141882721288]}]')
+      
+      .sendero-book
+        a.book-button(href="")  Reservar

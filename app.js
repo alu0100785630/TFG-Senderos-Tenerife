@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 //Morgan permite ver el estado de las peticiones en la terminal
 const morgan = require('morgan');
@@ -16,6 +17,12 @@ const rutasReviews = require('./rutas/rutasReviews');
 
 const app = express();
 
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
+
+// Todos los ficheros servidos desde este directorio son estáticos
+app.use(express.static(path.join(__dirname, 'assets')));
+
 //Con el argumento especificamos como queremos que sea el loggin
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
@@ -28,7 +35,10 @@ app.use('/api/usuarios', rutasUsuarios);
 app.use('/api/reviews', rutasReviews);
 
 app.get('/', (req, res) => {
-  res.status(200).send('Test para comprobar que el servidor');
+  // res.status(200).send('Test para comprobar que el servidor');
+  //En vez de llamar a .json llamamos a .render
+  //No necesitamos especificar la extensión del fichero.
+  res.status(200).render('base');
 });
 
 //Como los middleware se ejecutan en orden, ponemos el de manejo de errores aquí,
