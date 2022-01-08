@@ -51,17 +51,20 @@ block content
             .sendero-content__desc--details-map
               a.go-to-map(href="#tfg-map")  Ver Mapa
       
-      .sendero-reviews
-        each val in [1, 2 ,3, 4]
-          .sendero-reviews__single-review
-            .sendero-reviews__single-review--user
-              img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
-              .user-name Alberto
-            p.sendero-reviews__single-review--rev Hemos disfrutado mucho, magníficas vistas del barranco y un gran premio en forma de playa la final de la caminata. Muy recomendado!!
-            .sendero-reviews__single-review--rating
-              .reviews-avg
-                .empty-stars
-                .full-stars(style=`width: ${rating}%`)
+      - let singleStarRating = ''
+      if (sendero.reviews)
+        .sendero-reviews
+          each review in sendero.reviews
+            - singleStarRating = `${(review.rating / 5) * 100}%`
+            .sendero-reviews__single-review
+              .sendero-reviews__single-review--user
+                img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
+                .user-name= review.usuario.name
+              p.sendero-reviews__single-review--rev= review.review
+              .sendero-reviews__single-review--rating
+                .reviews-avg
+                  .empty-stars
+                  .full-stars(style=`width: ${singleStarRating}%`)
       
       .sendero-map
         #tfg-map(data-locations=`${JSON.stringify(sendero.routeLocations)}`)

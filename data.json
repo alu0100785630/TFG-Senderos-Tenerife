@@ -57,5 +57,37 @@
         "coordenadas": [28.33828283247018, -16.818001702912987]
       }
     ]
+  },
+  {
+    "name": "Las 7 Cañadas",
+    "duration": 6,
+    "difficulty": "medio",
+    "price": 30,
+    "description": "<p>Este sendero de 17 kilómetros (ida) permite conocer desde dentro, y alejados de la carretera, los secretos del Parque Nacional de El Teide.</p><p>Caminar por las llanuras del Parque Nacional del Teide Parque Nacional del Teide es adentrarse en paisajes modelados por el fuego. Aunque la estrella del parque es el propio volcán que le da nombre, hay cientos de caminos y senderos que, sin ser tan exigentes como la ascensión a la cima de España (3.718 m.).</p>",
+    "image": "las-canadas-del-teide.png",
+    "startDate": "2022-05-13,19:00",
+    "mainLocation" : "La Orotava",
+    "routeLocations": [
+      {
+        "description": "Parador de Cañadas del Teide",
+        "type": "Point",
+        "coordenadas": [28.227309756171934, -16.627153525584536]
+      },
+      {
+        "description": "Telesférico",
+        "type": "Point",
+        "coordenadas": [28.258155061938435, -16.624579405167747]
+      },
+      {
+        "description": "Sendero de Montaña Blanca",
+        "type": "Point",
+        "coordenadas": [28.262477950337956, -16.60336003770579]
+      },
+      {
+        "description": "Portillo alto",
+        "type": "Point",
+        "coordenadas": [28.297817341116744, -16.56337524355891]
+      }
+    ]
   }
 ]
