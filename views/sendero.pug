@@ -45,8 +45,12 @@ block content
                 - dif = 'Fácil'
               .sendero-content__desc--details-w-difficulty Dificultad : 
                 span(class=`${sendero.difficulty}`)= dif
+
+              - let monthsES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+              - let weeDaysES = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado']
+              - let senderoDate = new Date(sendero.startDate)
               .sendero-content__desc--details-w-location= sendero.mainLocation
-              .sendero-content__desc--details-w-date= sendero.startDate.toLocaleString('es-ES', {day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'})
+              .sendero-content__desc--details-w-date= `${weeDaysES[senderoDate.getDay()]} ${senderoDate.getDate()} de ${monthsES[senderoDate.getMonth()]} de ${senderoDate.getFullYear()}, ${senderoDate.toLocaleTimeString('es-ES')}`
               .sendero-content__desc--details-w-duration= `${sendero.duration} horas`
             .sendero-content__desc--details-map
               a.go-to-map(href="#tfg-map")  Ver Mapa

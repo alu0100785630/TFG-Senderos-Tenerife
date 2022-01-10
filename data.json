@@ -6,7 +6,7 @@
     "price": 35,
     "description": "<p>Caminata que baja por el barranco de Masca para acabar en la playa. Una ruta de duración de 4 horas de preciosos paisajes volcánicos.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed congue felis. Aliquam ut auctor lectus. Donec blandit auctor facilisis. Morbi semper nibh vitae eros condimentum semper.</p><p>Etiam scelerisque mi eu aliquam iaculis. Praesent in velit convallis, tristique augue ac, rutrum velit. Morbi hendrerit magna orci, at gravida lectus molestie vitae. Quisque maximus condimentum condimentum. Nam mattis lorem ut convallis bibendum. Integer non pharetra felis, tincidunt ullamcorper odio.</p>",
     "image": "ruta-de-masca.png",
-    "startDate": "2021-06-13,09:00",
+    "startDate": "2022-06-13,09:00",
     "mainLocation" : "Buenavista del Norte",
     "routeLocations": [
       {
