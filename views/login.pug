@@ -1,0 +1,21 @@
+extends base
+
+block content
+  section.login-section
+    .login-image
+      img.login-vectir(src='../img/user_login.png' alt='TFG Senderos Tenerife Logo Dark')
+    .login-form-wrapper
+      img.logo-dark(src='../img/menu/teide_logo_dark.png' alt='TFG Senderos Tenerife Logo Dark')
+      h2.login-header Iniciar Sesión
+      form.form(autocomplete="off")
+        .form-group
+          label.form__label(for='email') Email
+          input#email.form__input(type='email', placeholder='you@example.com', required)
+        .form-group
+          label.form__label(for='password') Contraseña
+          input#password.form__input(type='password', placeholder='••••••••', required)
+        .form-group
+          span.register-mess ¿Aún no tienes cuenta? 
+            a(href="") Regístrate!
+        .form-group
+          button.form__login Log In

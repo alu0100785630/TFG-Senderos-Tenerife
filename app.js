@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 
 //Morgan permite ver el estado de las peticiones en la terminal
 const morgan = require('morgan');
@@ -22,11 +24,17 @@ const app = express();
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use(cors());
+
+app.options('*', cors());
+
 // Todos los ficheros servidos desde este directorio son estáticos
 app.use(express.static(path.join(__dirname, 'assets')));
 
 //Con el argumento especificamos como queremos que sea el loggin
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+
+app.use(cookieParser());
 
 //Esto es un Middleware, es una función que puede modificar los datos entrantes de una petición
 //La petición pasa a través de esto mientras se procesa

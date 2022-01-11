@@ -53,13 +53,6 @@ exports.registro = async(req, res, next) => {
 
     cookieJWT(newUsuario, 201, token, res);
 
-    res.status(201).json({
-      status: 'success',
-      token,
-      data: {
-        usuario: newUsuario
-      }
-    });
   } catch (err) {
     //Esto significa que existe un duplicated key
     if (err.code == 11000) {
@@ -95,19 +88,14 @@ exports.login = async(req, res, next) => {
 
     cookieJWT(usuario, 200, token, res);
     
-    res.status(201).json({
-      status: 'success',
-      token,
-      name: usuario.name
-    });
-    
 
   } catch (err) {
-    if (err.message != 'Email o contraseña vacíos.')
-    err.message = `Email o contraseña incorrectos!`;  
+    console.log(req.body);
+    // if (err.message != 'Email o contraseña vacíos.')
+    // err.message = `Email o contraseña incorrectos!`;  
 
-    err.status = 'fail';
-    err.statusCode = 400;
+    // err.status = 'fail';
+    // err.statusCode = 400;
     return next(err);
   }
 };

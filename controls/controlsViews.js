@@ -47,3 +47,17 @@ exports.senderoOverview = async(req, res, next) => {
     });
   }
 };
+
+exports.userLogin = async(req, res, next) => {
+  try {
+    res.status(200).render('login', {
+      title: 'Log In'
+    })
+
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
+};
