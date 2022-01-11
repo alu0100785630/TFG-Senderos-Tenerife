@@ -166,3 +166,25 @@ exports.restrict = (...roles) => {
     }
   };
 };
+
+//Comprobamos si el usuario ha hecho log in. no mandamos errores porque solo es para el renderizado de las páginas.
+exports.userLoogedIn = async(req, res, next) => {
+  try {
+    if (req.cookies.jwt) {
+      //Verifica el token
+      const descode = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET);
+      const usuarioActual = await Usuario.findById(descode.id);
+      //Comprueba que el usuario sigue existiendo
+      if (!usuarioActual) {
+        return next();
+      }
+      //Si llegamos a este punto es porque el usuario ha iniciado sesión
+      //Crearemos una variable usuario para todas las plantillas pug. Estas tienen acceso a res.locals
+      res.locals.usuario = usuarioActual;
+    }
+    next();
+  }
+  catch (err) {
+    return next(err);
+  }
+};

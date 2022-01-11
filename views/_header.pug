@@ -7,7 +7,7 @@ header
       .user-links
         a.user-link.profile(href='/perfil')
           img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
-          span.user-name Alberto
+          span.user-name= usuario.name.split(' ')[0]
         a.user-link.log-out Log out
     else
       .login-links
