@@ -90,12 +90,13 @@ exports.login = async(req, res, next) => {
     
 
   } catch (err) {
-    console.log(req.body);
-    // if (err.message != 'Email o contraseña vacíos.')
-    // err.message = `Email o contraseña incorrectos!`;  
+    //Shows email and password on console (terminal)
+    // console.log(req.body);
+    if (err.message != 'Email o contraseña vacíos.')
+    err.message = `Email o contraseña incorrectos!`;  
 
-    // err.status = 'fail';
-    // err.statusCode = 400;
+    err.status = 'fail';
+    err.statusCode = 400;
     return next(err);
   }
 };
@@ -181,8 +182,25 @@ exports.userLoogedIn = async(req, res, next) => {
       //Si llegamos a este punto es porque el usuario ha iniciado sesión
       //Crearemos una variable usuario para todas las plantillas pug. Estas tienen acceso a res.locals
       res.locals.usuario = usuarioActual;
+      return next();
     }
-    next();
+  }
+  catch (err) {
+    return next();
+  }
+  next();
+};
+
+
+exports.logOut = async(req, res, next) => {
+  try {
+    //En vez de enviar el token enviamos el string 'logout'
+    res.cookie('jwt', 'logout', {
+      //Expira en 10 segundos a partir de ahora
+      expires: new Date(Date.now() + 10 * 1000),
+      httpOnly: true
+    });
+    res.status(200).json({ status: 'success' });
   }
   catch (err) {
     return next(err);

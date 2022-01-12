@@ -18,4 +18,6 @@ router.delete('/delete-user', auth.protect, controlsUsuarios.deleteUser);
 
 router.get('/perfil', auth.protect, controlsUsuarios.perfilUsuario );
 
+router.get('/logout', auth.logOut);
+
 module.exports = router;
