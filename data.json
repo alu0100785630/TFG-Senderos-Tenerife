@@ -34,7 +34,7 @@
   {
     "name": "Erjos",
     "duration": 3,
-    "difficulty": "medio",
+    "difficulty": "facil",
     "price": 12,
     "description": "<p>Las conocidas como Charcas de Erjos son un accidente geográfico en el que la actividad humana ha influido pero que es de lo más peculiar.</p><p>El resultado, unas charcas que hoy son permanentes y que sirven de abrigo a importantes comunidades de aves, tanto autóctonas como migratorias hacia o desde África. Entre las especies más destacadas encontramos águilas pescadoras (conocidas como “guincho”).</p>",
     "image": "erjos.png",
@@ -62,8 +62,8 @@
     "name": "Las 7 Cañadas",
     "duration": 6,
     "difficulty": "medio",
-    "price": 30,
-    "description": "<p>Este sendero de 17 kilómetros (ida) permite conocer desde dentro, y alejados de la carretera, los secretos del Parque Nacional de El Teide.</p><p>Caminar por las llanuras del Parque Nacional del Teide Parque Nacional del Teide es adentrarse en paisajes modelados por el fuego. Aunque la estrella del parque es el propio volcán que le da nombre, hay cientos de caminos y senderos que, sin ser tan exigentes como la ascensión a la cima de España (3.718 m.).</p>",
+    "price": 35,
+    "description": "<p>La ruta de las Siete Cañadas está marcada con el itinerario nº 4 dentro de la red de senderos del Parque Nacional del Teide. Esta ruta forma parte del antiguo camino de Chasna utilizado por los guaches (antiguos pobladores) para atravesar la Isla.</p><p>La ruta es un suave trazado que transcurre siempre entre las paredes del Circo de Las Cañadas a un lado y de las grandes coladas de lava y del Teide por el otro lado. A lo largo de toda la ruta podremos descubrir muchos y variados caprichos de la naturaleza que han ido formándose con el paso del tiempo, debido a las diferentes climatologías, sobretodo del viento que azota este lugar.</p>",
     "image": "las-canadas-del-teide.png",
     "startDate": "2022-05-13,19:00",
     "mainLocation" : "La Orotava",
@@ -71,22 +71,224 @@
       {
         "description": "Parador de Cañadas del Teide",
         "type": "Point",
-        "coordenadas": [28.227309756171934, -16.627153525584536]
+        "coordenadas": [28.223915026534588, -16.627294832093096]
+      },
+      {
+        "description": "Sendero Roques de García",
+        "type": "Point",
+        "coordenadas": [28.22826508830386, -16.637172205629216]
       },
       {
         "description": "Telesférico",
         "type": "Point",
-        "coordenadas": [28.258155061938435, -16.624579405167747]
+        "coordenadas": [28.255863863459965, -16.625327570460644]
       },
       {
         "description": "Sendero de Montaña Blanca",
         "type": "Point",
-        "coordenadas": [28.262477950337956, -16.60336003770579]
+        "coordenadas": [28.260777964716244, -16.603698236540914]
       },
       {
-        "description": "Portillo alto",
+        "description": "Montaña Rajada",
         "type": "Point",
-        "coordenadas": [28.297817341116744, -16.56337524355891]
+        "coordenadas": [28.26637220410164, -16.598720056455697]
+      },
+      {
+        "description": "Pico del Teide",
+        "type": "Point",
+        "coordenadas": [28.273629158114833, -16.642579539620254]
+      }
+    ]
+  },
+  {
+    "name": "Barranco de Afur",
+    "duration": 6,
+    "difficulty": "medio",
+    "price": 22,
+    "description": "<p>El sendero de Afur a Taganana nos acerca a una zona tan remota como llena de sorpresas. Montañas, playas salvajes y barrancos milenarios son motivos más que suficientes para animarse a caminar por esta zona de la isla.</p><p>El inicio del camino coincide con el caserío de Afur, continúa hasta la Playa de Tamadiste, bordea el pueblo de Taganana y regresa hasta Afur nuevamente. En total se cubren 14 km. de distancia en unas 6 horas aproximadamente.</p>",
+    "image": "afur.png",
+    "startDate": "2022-10-17,10:00",
+    "mainLocation" : "Anaga",
+    "routeLocations": [
+      {
+        "description": "Barranco de Afur, Tamadite",
+        "type": "Point",
+        "coordenadas": [28.555884787925695, -16.248318765771863]
+      },
+      {
+        "description": "Barranco de Afur",
+        "type": "Point",
+        "coordenadas": [28.562488377518047, -16.251778980966535]
+      },
+      {
+        "description": "Playa de Tamadite",
+        "type": "Point",
+        "coordenadas": [28.57083181937476, -16.253142123859348]
+      }
+    ]
+  },
+  {
+    "name": "Alto de Guajara",
+    "duration": 4,
+    "difficulty": "facil",
+    "price": 17,
+    "description": "<p>Las vistas de Guajara son impresionantes pero no solo mirando hacia la tierra, a los volcanes, sino también hacia el cielo. En lo alto de Guajara se construyó el primer observatorio astronómico del mundo. Fue levantado en 1856 por el astrónomo británico Charles Piazzy Smyth quien, desde lo más alto de la montaña, comenzó a realizar los primeros estudios astronómicos en Tenerife.</p><p>Guajara también recibió en 1910 la visita del astrónomo francés Jean Mascart quien viajó expresamente a Tenerife para observar el cometa Halley desde el alto de la montaña.</p>",
+    "image": "alto-de-guajara.png",
+    "startDate": "2022-09-25,08:00",
+    "mainLocation" : "La Orotava",
+    "routeLocations": [
+      {
+        "description": "Corona Forestal",
+        "type": "Point",
+        "coordenadas": [28.245390797881722, -16.54980731279168]
+      },
+      {
+        "description": "Zona de Acampada",
+        "type": "Point",
+        "coordenadas": [28.22225140688576, -16.552725556289907]
+      },
+      {
+        "description": "Roque de la Grieta",
+        "type": "Point",
+        "coordenadas": [28.226486441778533, -16.5875728168864]
+      },
+      {
+        "description": "Alto de Guajara",
+        "type": "Point",
+        "coordenadas": [28.21892376160462, -16.61263537869472]
+      }
+    ]
+  },
+  {
+    "name": "Arenas Negras",
+    "duration": 3,
+    "difficulty": "facil",
+    "price": 10,
+    "description": "<p>La ruta que nos lleva desde San Francisco de La Montañeta hasta el Área Recreativa de Arenas Negras es una ruta de nivel de dificultad media por el desnivel que tenemos que superar. La distancia es de apenas 2,8 km y un desnivel de 1.000 metros</p><p>Es recomendable realizar esta ruta a primera hora de la mañana o cuando las temperaturas no sean muy altas debido a que la mayor parte es en ascenso.</p>",
+    "image": "arenas-negras.png",
+    "startDate": "2022-04-12,08:00",
+    "mainLocation" : "El Tanque",
+    "routeLocations": [
+      {
+        "description": "Puente de madera",
+        "type": "Point",
+        "coordenadas": [28.33480976221268, -16.75886134186611]
+      },
+      {
+        "description": "Inicio Sendero Arenas Negras",
+        "type": "Point",
+        "coordenadas": [28.332751080056653, -16.758346357748472]
+      },
+      {
+        "description": "Volcán Arenas Negras",
+        "type": "Point",
+        "coordenadas": [28.316818552925955, -16.764043369975028]
+      },
+      {
+        "description": "Volcán de Lifiere",
+        "type": "Point",
+        "coordenadas": [28.301932185279117, -16.744001903639838]
+      },
+      {
+        "description": "Volcán Chinyero",
+        "type": "Point",
+        "coordenadas": [28.295659640100016, -16.756962338137292]
+      }
+    ]
+  },
+  {
+    "name": "Barranco de Los Cochinos",
+    "duration": 6,
+    "difficulty": "dificil",
+    "price": 26,
+    "description": "<p>Una ruta que comienza algo dura por los varios ascensos pronunciados que tiene. El paso por el túnel con agua hasta los tobillos y total oscuridad le da un toque de aventura. Requiere la utilización de calzado adecuado y frontal. Por lo demás una ruta con vistas panorámicas espectaculares para disfrutarlas.</p><p>A la altura del nº 31 encontramos una bifurcación a la izquierda por donde se inicia el PR TF 53 Camino de Cuevas Negras: Este sendero era utilizado antiguamente como vía de enlace entre Los Silos y Santiago del Teide. Más tarde se convirtió en Camino Real, uniendo a Los Silos con Erjos para poder de esta manera acceder a Guía de Isora. A lo largo del camino podemos disfrutar de fantásticas vistas panorámicas de la Isla Baja.</p>",
+    "image": "barranco-de-los-cochinos.png",
+    "startDate": "2022-08-16,16:00",
+    "mainLocation" : "Los Silos",
+    "routeLocations": [
+      {
+        "description": "Camino Cuevas Negras",
+        "type": "Point",
+        "coordenadas": [28.359169174045384, -16.813410084729725]
+      },
+      {
+        "description": "Sendero Las Moradas",
+        "type": "Point",
+        "coordenadas": [28.355442089910877, -16.81813543300928]
+      },
+      {
+        "description": "Las Moradas",
+        "type": "Point",
+        "coordenadas": [28.35021159059533, -16.819734831387173]
+      },
+      {
+        "description": "Galería Los Cochinos",
+        "type": "Point",
+        "coordenadas": [28.33856708815335, -16.81800512467093]
+      }
+    ]
+  },
+  {
+    "name": "Playa de Antequera",
+    "duration": 6,
+    "difficulty": "dificil",
+    "price": 30,
+    "description": "<p>Este sendero es una sencilla ruta lineal de 5,5 Km que nos lleva desde la zona de Chamorga, a la altura aproximada del Km. 9 de la TF-123, hasta la playa de Antequera, una de las playas naturales más grandes de Tenerife.</p><p>Toda la parte del recorrido que transcurre por el bosque de Laurisilva nos encontramos protegidos del sol, pero una vez descendemos y salimos del bosque el astro rey nos acompañará durante todo el recorrido, sin apenas oportunidades de protección, así que hay que tratar de evitar los días de más calor y, por supuesto, ir protegidos contra el sol y bien aprovisionados de agua para todo el camino.</p>",
+    "image": "playa-de-antequera.png",
+    "startDate": "2022-07-14,09:00",
+    "mainLocation" : "Anaga",
+    "routeLocations": [
+      {
+        "description": "Barranco de Igueste",
+        "type": "Point",
+        "coordenadas": [28.547793480032293, -16.164278858117488]
+      },
+      {
+        "description": "Mirador La Atalaya",
+        "type": "Point",
+        "coordenadas": [28.531016692685423, -16.145782344180187]
+      },
+      {
+        "description": "Playa de Zápato",
+        "type": "Point",
+        "coordenadas": [28.532826452218146, -16.13762842852337]
+      },
+      {
+        "description": "Playa de Antequera",
+        "type": "Point",
+        "coordenadas": [28.535324246294053, -16.132167451392384]
+      }
+    ]
+  },
+  {
+    "name": "Ventanas de Güímar",
+    "duration": 4,
+    "difficulty": "medio",
+    "price": 23,
+    "description": "<p>El punto de partida es el Mirador de Don Martin por donde sale una pista que nos lleva a unas antenas de television. Este primer tramo se puede hacer en coche porque esta asfaltada pero al llegar a este punto hay que comenzar a caminar. Una fuerte pendiente agotara incluso hasta el mas deportista, por suerte no es muy largo hasta llegar a la pista de comienzo.</p><p>Una vez sorteada esta espectacular pendiente ya solamente es continuar el pequeño sendero que nos llevara hasta el comienzo de los tuneles.</p>",
+    "image": "ventanas-de-guimar.png",
+    "startDate": "2022-09-16,09:00",
+    "mainLocation" : "Güímar",
+    "routeLocations": [
+      {
+        "description": "Capilla de San Juan",
+        "type": "Point",
+        "coordenadas": [28.307534244996464, -16.42452341840292]
+      },
+      {
+        "description": "Reserva Natural",
+        "type": "Point",
+        "coordenadas": [28.301629660316102, -16.425008950112744]
+      },
+      {
+        "description": "Finca Ángeles",
+        "type": "Point",
+        "coordenadas": [28.29914482762378, -16.423461317787677]
+      },
+      {
+        "description": "Las Ventanas de Güímar",
+        "type": "Point",
+        "coordenadas": [28.293401394703384, -16.433287830767416]
       }
     ]
   }
