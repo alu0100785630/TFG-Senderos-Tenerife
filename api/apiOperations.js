@@ -35,23 +35,38 @@ class APIOperations {
   }
 
   filtrar() {
-    //Destructuring de ES6 para obtener los datos del objeto, los pongo entre {} para convertirlo directamente en un objeto
-    const objetoQuery = { ...this.cadenaQuery };
+    ///api/senderos?regex=ruta
+    if (JSON.stringify(this.cadenaQuery).includes('regex')) {
+      //Convierte el string en una expresión regular
+      let queryRegEx = new RegExp(this.cadenaQuery.regex, 'i' );
 
-    //Array con los elementos que quiero excluir
-    const camposExclude = ['sort', 'page', 'fields', 'limit'];
-    //Recorro el array y elimino los elementos que coincidan en el objeto query.
-    camposExclude.forEach(el => delete objetoQuery[el]);
-
-    //Las consultas de de comparación se realizan con $ delante ($gte, $lte). Así que hacemos un replace del string.
-    //Convierte el objeto a un string the JSON
-    let jsonStr = JSON.stringify(objetoQuery);
-    //Sustituimos usando expresión regular
-    jsonStr = jsonStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
-
-    this.query = this.query.find(JSON.parse(jsonStr));
-
-    //Devuelve el objeto completo
+      //Obtiene los senderos que contienen en el nombre o en la ubicación la cadena buscada.
+      this.query = this.query.find({ 
+        $or: [ 
+          {'name' : queryRegEx}, 
+          {'mainLocation':queryRegEx} 
+        ] 
+      });
+    }
+    else {
+      //Destructuring de ES6 para obtener los datos del objeto, los pongo entre {} para convertirlo directamente en un objeto
+      const objetoQuery = { ...this.cadenaQuery };
+  
+      //Array con los elementos que quiero excluir
+      const camposExclude = ['sort', 'page', 'fields', 'limit'];
+      //Recorro el array y elimino los elementos que coincidan en el objeto query.
+      camposExclude.forEach(el => delete objetoQuery[el]);
+  
+      //Las consultas de de comparación se realizan con $ delante ($gte, $lte). Así que hacemos un replace del string.
+      //Convierte el objeto a un string the JSON
+      let jsonStr = JSON.stringify(objetoQuery);
+      //Sustituimos usando expresión regular
+      jsonStr = jsonStr.replace(/\b(gte|gt|lte|lt)\b/g, match => `$${match}`);
+  
+      this.query = this.query.find(JSON.parse(jsonStr));
+  
+      //Devuelve el objeto completo
+    }
     return this;
   }
 }
