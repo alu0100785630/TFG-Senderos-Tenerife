@@ -9,50 +9,53 @@ block content
           ul.senderos__data--query-pagination
 
           .senderos__data--query-search
-            input.search(type='text' name='search' placeholder='Buscar...')
+            input#sendero-search.search(type='text' name='search' placeholder='Buscar...')
       
-      .senderos__items
-        - let startsRating
-        - let rating
-        - let dif = ''
-        - let monthsES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-        - let senderoDate
-        each sendero in senderos.reverse()
-          .senderos__items--single
-            .sendero-container
-              img.sendero-img(src=`/img/senderos/${sendero.image}` alt=`${sendero.name} Image`)
-              .sendero-data
-                .sendero-data__title
-                  h3.sendero-data__title--name= sendero.name
-                  if sendero.difficulty == 'dificil'
-                    - dif = 'Difícil'
-                  if sendero.difficulty == 'medio'
-                    - dif = 'Medio'
-                  if sendero.difficulty == 'facil'
-                    - dif = 'Fácil'
-                  span.sendero-data__title--dificultad(class=`${sendero.difficulty}`)= dif
-                
-                .sendero-data__info
-                  .sendero-data__info--rating
-                    if sendero.gradeQuantity != 0
-                      - startsRating = `${(sendero.gradeAverage / 5) * 100}%`
-                      - rating = sendero.gradeAverage
-                    else
-                      - startsRating = '0%'
-                      - rating = '---'
-                    .reviews-avg
-                      .empty-stars
-                      .full-stars(style=`width: ${startsRating}`)
-                    .reviews-avg-n= rating 
-                  .sendero-data__info--price=`${sendero.price}€`
-                
-                .sendero-data__location=`${sendero.mainLocation}`
-                
-                .sendero-data__date
-                  - senderoDate = new Date(sendero.startDate)
-                  .sendero-data__date--date= `${senderoDate.getDate()} de ${monthsES[senderoDate.getMonth()]} de ${senderoDate.getFullYear()}`
-                  .sendero-data__date--duration=`${sendero.duration}h`
-                
-                .sendero-data__book
-                  a.info-button.ov-button(href=`/sendero/${sendero.slug}`) Info
-                  .book-button.ov-button Reserva
+      .senderos-main-wrapper
+        .spinner-container
+          .spinner
+        .senderos-main-wrapper__items
+          - let startsRating
+          - let rating
+          - let dif = ''
+          - let monthsES = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+          - let senderoDate
+          each sendero in senderos.reverse()
+            .senderos-main-wrapper__items--single
+              .sendero-container
+                img.sendero-img(src=`/img/senderos/${sendero.image}` alt=`${sendero.name} Image`)
+                .sendero-data
+                  .sendero-data__title
+                    h3.sendero-data__title--name= sendero.name
+                    if sendero.difficulty == 'dificil'
+                      - dif = 'Difícil'
+                    if sendero.difficulty == 'medio'
+                      - dif = 'Medio'
+                    if sendero.difficulty == 'facil'
+                      - dif = 'Fácil'
+                    span.sendero-data__title--dificultad(class=`${sendero.difficulty}`)= dif
+                  
+                  .sendero-data__info
+                    .sendero-data__info--rating
+                      if sendero.gradeQuantity != 0
+                        - startsRating = `${(sendero.gradeAverage / 5) * 100}%`
+                        - rating = sendero.gradeAverage
+                      else
+                        - startsRating = '0%'
+                        - rating = '---'
+                      .reviews-avg
+                        .empty-stars
+                        .full-stars(style=`width: ${startsRating}`)
+                      .reviews-avg-n= rating 
+                    .sendero-data__info--price=`${sendero.price}€`
+                  
+                  .sendero-data__location=`${sendero.mainLocation}`
+                  
+                  .sendero-data__date
+                    - senderoDate = new Date(sendero.startDate)
+                    .sendero-data__date--date= `${senderoDate.getDate()} de ${monthsES[senderoDate.getMonth()]} de ${senderoDate.getFullYear()}`
+                    .sendero-data__date--duration=`${sendero.duration}h`
+                  
+                  .sendero-data__book
+                    a.info-button.ov-button(href=`/sendero/${sendero.slug}`) Info
+                    .book-button.ov-button Reserva
