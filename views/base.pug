@@ -9,7 +9,32 @@ html
       link(rel='shortcut icon' type='image/png' href='/img/menu/teide_logo.png')
       title= `TFG | ${title}`
   body
+    if usuario
+      .popup 
+      .popup__review
+        .popup__review--close ×
+        .popup__review--title Añade una valoración
+        .popup__review--content
+          .star-rating
+            input(type="radio" name="stars" id="star-a" value="5")
+            label(for="star-a")
 
+            input(type="radio" name="stars" id="star-b" value="4")
+            label(for="star-b")
+
+            input(type="radio" name="stars" id="star-c" value="3")
+            label(for="star-c")
+
+            input(type="radio" name="stars" id="star-d" value="2")
+            label(for="star-d")
+
+            input(type="radio" name="stars" id="star-e" value="1")
+            label(for="star-e")
+
+          textarea.review-content(rows="10" placeholder="Comparte tu experiencia aquí..")
+          span.error-empty No puede enviar una valoración sin comentario
+          
+          .send-review Enviar
     //Header
     include _header
 

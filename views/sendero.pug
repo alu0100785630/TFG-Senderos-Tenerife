@@ -5,7 +5,7 @@ block append head
   link(href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet')
 
 block content
-  section.sendero-wrapper
+  section.sendero-wrapper(data-sendero-id=`${sendero.id}`)
     .hero
       img.hero__image(src=`/img/senderos/${sendero.image}` alt=`${sendero.name} Image`)
     
@@ -54,6 +54,9 @@ block content
               .sendero-content__desc--details-w-duration= `${sendero.duration} horas`
             .sendero-content__desc--details-map
               a.go-to-map(href="#tfg-map")  Ver Mapa
+            
+            if usuario
+              .add-review(data-user-id=`${usuario.id}`) Añade una valoración
       
       - let singleStarRating = ''
       if (sendero.reviews)
