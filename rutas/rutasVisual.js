@@ -11,4 +11,6 @@ router.get('/overview', controlsViews.allOverview);
 router.get('/sendero/:slug', controlsViews.senderoOverview);
 router.get('/login', controlsViews.userLogin);
 
+router.get('/registro', controlsViews.registerUser);
+
 module.exports = router;

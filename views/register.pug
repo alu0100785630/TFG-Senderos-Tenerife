@@ -1,0 +1,25 @@
+extends base
+
+block content
+  section.register-section
+    .register-image
+      img.register-vectir(src='../img/user_register.png' alt='TFG Senderos Tenerife Logo Dark')
+    .register-form-wrapper
+      img.logo-dark(src='../img/menu/teide_logo_dark.png' alt='TFG Senderos Tenerife Logo Dark')
+      h2.register-header Regístrate
+      form.form.register-form(autocomplete="off")
+        span.error-register
+        .form-group
+          label.form__label(for='r-name') Nombre completo
+          input#r-name.form__input(type='text', placeholder='Alberto Dorta', required)
+        .form-group
+          label.form__label(for='r-email') Email
+          input#r-email.form__input(type='email', placeholder='you@example.com', required)
+        .form-group
+          label.form__label(for='r-password') Contraseña
+          input#r-password.form__input(type='password', placeholder='••••••••', pattern=".{4,}", required)
+        .form-group
+          label.form__label(for='r-rep-password') Repetir contraseña
+          input#r-rep-password.form__input(type='password', placeholder='••••••••', pattern=".{4,}", required)
+        .form-group
+          button.form__register Sign up

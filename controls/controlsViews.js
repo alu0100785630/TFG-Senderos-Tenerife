@@ -61,3 +61,18 @@ exports.userLogin = async(req, res, next) => {
     });
   }
 };
+
+
+exports.registerUser = async(req, res, next) => {
+  try {
+    res.status(200).render('register', {
+      title: 'Registro'
+    })
+
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
+};

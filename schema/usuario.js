@@ -21,7 +21,7 @@ const usuarioSchema = new mongoose.Schema({
   password: {
     type: String,
     required: [true, 'Introduzca una contraseña.'],
-    minlength: 8,
+    minlength: 4,
     //Esto hace que el campo contraseña no se muestre en el output
     select: false
   },
