@@ -55,11 +55,11 @@ reviewSchema.pre(/^find/, function(next) {
 });
 
 //Escribiremos un método static en el Schema. De este modo podremos llamar a la función en el propio Model. Review.function()
-reviewSchema.statics.calcAverageGrades = async function(senderoId) {
+reviewSchema.statics.calcAverageGrades = async function(senderoId, model) {
   //Es como una query normal pero se pueden manipular los datos siguiendo unos pasos.
   //Pasamos un array de "stages" => los docuemntos pasarán por estos stages uno a uno en la secuencia en la que los definamos
 
-  const ratings = await this.aggregate([
+  const ratings = await model.aggregate([
     {
       //match es para filtrar o seleccionar ciertos documentos. Como un filter object
       $match : { sendero : senderoId}
@@ -90,9 +90,24 @@ reviewSchema.statics.calcAverageGrades = async function(senderoId) {
 
 reviewSchema.post('save', function() {
   //this.constructor es el Model actual. No podemos llamar a Review porque no está declarado
-  this.constructor.calcAverageGrades(this.sendero);
+  this.constructor.calcAverageGrades(this.sendero, this.constructor);
 });
 
+//Para update y delete no existen document middlewares, solo query middlewares
+//findOneAndUpdate
+//findOneAndDelete
+
+//No podemos usar post porque en ese punto la query ya se ha ejecutado y no tenemos accesso a findOne
+reviewSchema.pre(/^findOneAnd/, async function(next) {
+  //Guardamos el objeto review en la query actual y lo pasamos al siguiente middleware
+  this.currentReview = await this.findOne();
+
+});
+
+reviewSchema.post(/^findOneAnd/, async function(next) {
+  //findOne no functiona aquí, porque la query ya se ha ejecutado
+  await this.currentReview.constructor.calcAverageGrades(this.currentReview.sendero);
+});
 
 const Review = mongoose.model('Review', reviewSchema);
 

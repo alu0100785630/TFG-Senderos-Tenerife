@@ -1,5 +1,6 @@
 const Sendero = require('../schema/sendero');
 const Usuario = require('../schema/usuario');
+const Review = require('../schema/review');
 
 exports.allOverview = async(req, res, next) => {
   try {
@@ -29,6 +30,12 @@ exports.senderoOverview = async(req, res, next) => {
       //No necesitamos todos los fields así que solo especificamos los que queremos.
       fields: 'rating review usuario'
     });
+    
+    // Review.schema.statics.calcAverageGrades(sendero._id, Review);
+
+    // if ((!sendero.reviews || sendero.reviews.length == 0) && (sendero.gradeAverage != 0 && sendero.gradeQuantity != 0)) {
+    //   await Sendero.findOneAndUpdate( {_id: sendero._id}, {$set : {gradeAverage: 0, gradeQuantity: 0}} );
+    // }
 
     if (!sendero) {
       throw new Error('No existe un sendero con ese nombre');
