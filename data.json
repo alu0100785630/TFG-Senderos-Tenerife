@@ -291,5 +291,133 @@
         "coordenadas": [28.293401394703384, -16.433287830767416]
       }
     ]
+  },
+  {
+    "name": "Paisaje Lunar",
+    "duration": 5,
+    "difficulty": "medio",
+    "price": 25,
+    "description": "<p>Tras dejar atrás el pueblo de Vilaflor de Chasna, comienza el Camino del Atajo, que forma parte del antiguo Camino Real de Chasna, antigua vía de comunicación entre el norte y el sur de la isla. Una vez dentro del pinar, pasarás junto a Casa Galindo, a la vera del Barranco de Las Mesas.</p><p>A continuación hay que cruzar el barranco para seguir ascendiendo por el Camino de Chasna, disfrutando de unas fantásticas vistas de la cumbre. Ya en el descenso, encontrarás el mirador de Los Escurriales (Paisaje Lunar) hasta conectar con un camino que pasa junto a la Casa de Los Llanitos y te devuelve al camino por el que ascendiste, por el que podrás retornar a Vilaflor.</p>",
+    "image": "paisaje-lunar.png",
+    "startDate": "2022-08-16,07:00",
+    "mainLocation" : "Vilafor",
+    "routeLocations": [
+      {
+        "description": "Zona Recreativa Las Lajas",
+        "type": "Point",
+        "coordenadas": [28.191360940561324, -16.66613942230657]
+      },
+      {
+        "description": "Mirador de Vilaflor",
+        "type": "Point",
+        "coordenadas": [28.17411157830919, -16.645540056436722]
+      },
+      {
+        "description": "Campamento Madre del Agua",
+        "type": "Point",
+        "coordenadas": [28.18334184631495, -16.594728287291094]
+      },
+      {
+        "description": "Paisaje Lunar",
+        "type": "Point",
+        "coordenadas": [28.191190730186502, -16.604019459605293]
+      }
+    ]
+  },
+  {
+    "name": "Bosque de los Enigmas",
+    "duration": 4,
+    "difficulty": "facil",
+    "price": 15,
+    "description": "<p>Este sendero se realiza por el corazón del Parque Rural de Anaga, declarado Reserva de la Biosfera en 2015, siendo una de las mejores rutas de senderismo de Tenerife sin ninguna duda.</p><p>La ruta del Bosque de los Enigmas es un recorrido circular sencillo y para toda la familia. Este sendero puede iniciarse en el Mirador de Zapata y se realiza por espectaculares bosques de laurisilva, con una distancia de unos 5 kilómetros muy bien señalizados y con muy poco desnivel. </p>",
+    "image": "bosque-enigmas.png",
+    "startDate": "2022-04-12,09:00",
+    "mainLocation" : "Anaga",
+    "routeLocations": [
+      {
+        "description": "Área Recreativa Llano los Viejos",
+        "type": "Point",
+        "coordenadas": [28.527087509477038, -16.284057049128123]
+      },
+      {
+        "description": "Cueva Llano Los Viejos",
+        "type": "Point",
+        "coordenadas": [28.528124393332526, -16.289957909039217]
+      },
+      {
+        "description": "Bosque de los Enigmas",
+        "type": "Point",
+        "coordenadas": [28.530462057693608, -16.295515446191853]
+      },
+      {
+        "description": "Sendero Hija Combada",
+        "type": "Point",
+        "coordenadas": [28.53255460035855, -16.28403559145572]
+      },
+      {
+        "description": "Sendero Bosque de los Enigmas",
+        "type": "Point",
+        "coordenadas": [28.531894794093404, -16.281052974991564]
+      }
+    ]
+  },
+  {
+    "name": "Chinamada",
+    "duration": 3,
+    "difficulty": "medio",
+    "price": 10,
+    "description": "<p>Chinamada es un antiguo caserío aborigen en el que se conservan una treintena de casas-cueva en buen estado y de gran interés etnográfico, que están habitadas en la actualidad.</p><p>El camino atraviesa en sus primeros tramos algunos bancales cultivados de papas y calabazas, y continúa después por un paisaje de terreno escalonado, entre roques, toscas, almagres y cuevas. Es en este entorno donde es posible encontrar las cuevas más hondas, que suelen servir de refugio para descansar o comer.</p>",
+    "image": "chinamada.png",
+    "startDate": "2022-05-03,09:00",
+    "mainLocation" : "Anaga",
+    "routeLocations": [
+      {
+        "description": "Mirador Aguaide",
+        "type": "Point",
+        "coordenadas": [28.565309805276424, -16.294732860821522]
+      },
+      {
+        "description": "Mirador hacia el Roque de los Pinos",
+        "type": "Point",
+        "coordenadas": [28.562840991450457, -16.293381027436315]
+      },
+      {
+        "description": "Restaurante La Cueva",
+        "type": "Point",
+        "coordenadas": [28.562332144761513, -16.29097776808483]
+      },
+      {
+        "description": "Camino alternativo a Chinamada",
+        "type": "Point",
+        "coordenadas": [28.561729064018635, -16.284089855122104]
+      }
+    ]
+  },
+  {
+    "name": "Playa de Los Patos",
+    "duration": 1,
+    "difficulty": "medio",
+    "price": 8,
+    "description": "<p>Esta playa se encuentra justo entre la playa de El Bollullo y la playa de El Ancón. Realmente está junto a la playa de El Ancón y sólo la separa de esta un saliente de la isla que e adentra en el mar, denominado Punta del Ancón.</p><p>Los Patos, tiene una gran parte de su longitud formada por arena negra y otras zonas con más callados y piedras. Lo ideal es asentarte por la zona de arena donde estarás más cómodo y el baño será más seguro al haber menos piedras dentro del agua.</p>",
+    "image": "playa-los-patos.png",
+    "startDate": "2022-08-04,11:00",
+    "mainLocation" : "La Orotava",
+    "routeLocations": [
+      {
+        "description": "Restaurante San Diego",
+        "type": "Point",
+        "coordenadas": [28.41567714217374, -16.516253849452443]
+      },
+      {
+        "description": "Bajada Barranco",
+        "type": "Point",
+        "coordenadas": [28.4176296837215, -16.517172483785306]
+      },
+      {
+        "description": "Playa Los Patos",
+        "type": "Point",
+        "coordenadas": [28.41881914539827, -16.515877464736388]
+      }
+    ]
   }
 ]
