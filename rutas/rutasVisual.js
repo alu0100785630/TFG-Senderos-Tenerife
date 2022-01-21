@@ -9,7 +9,7 @@ router.use(auth.userLoogedIn);
 
 router.get('/', (req, res) => {
   res.status(200).render('frontpage', {
-    title: 'Front Page',
+    title: 'Home',
   });
 });
 
