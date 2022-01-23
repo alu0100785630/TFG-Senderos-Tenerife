@@ -62,7 +62,7 @@ block content
       if (sendero.reviews)
         .sendero-reviews
           each review in sendero.reviews
-            - singleStarRating = `${(review.rating / 5) * 100}%`
+            - singleStarRating = `${(review.rating / 5) * 100}`
             .sendero-reviews__single-review
               .sendero-reviews__single-review--user
                 img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
