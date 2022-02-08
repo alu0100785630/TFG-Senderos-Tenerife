@@ -10,7 +10,7 @@ const senderoSchema = new mongoose.Schema(
       unique: true,
       trim: true,
       maxlength: [50, 'Longitud máxima de 50 caracteres'],
-      minlength: [5, 'Longitud mínima de 5 caracteres']
+      minlength: [3, 'Longitud mínima de 3 caracteres']
     },
 
     slug: String,

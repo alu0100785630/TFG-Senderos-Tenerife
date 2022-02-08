@@ -83,3 +83,17 @@ exports.registerUser = async(req, res, next) => {
     });
   }
 };
+
+exports.createSenderoAdmin = async(req, res, next) => {
+  try {
+    res.status(200).render('create', {
+      title: 'Crear Sendero'
+    })
+
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err
+    });
+  }
+};

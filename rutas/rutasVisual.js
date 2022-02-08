@@ -17,6 +17,12 @@ router.get('/overview', controlsViews.allOverview);
 router.get('/sendero/:slug', controlsViews.senderoOverview);
 router.get('/login', controlsViews.userLogin);
 
+router.get('/create-sendero', 
+  auth.protect,
+  auth.restrict('admin', 'guia'),
+  controlsViews.createSenderoAdmin
+);
+
 router.get('/registro', controlsViews.registerUser);
 
 module.exports = router;

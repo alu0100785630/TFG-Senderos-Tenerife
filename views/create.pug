@@ -1,0 +1,53 @@
+extends base
+
+block content
+  section.create-section.container
+      .create-header 
+        h2 Crea un sendero
+      form.form(autocomplete="off")
+        span.error-create Uno o más campos con fallos
+        .form-columns
+          .form-col-group
+            .form-group
+              label.form__label(for='name') Nombre del sendero
+              input#name.form__input(type='text', placeholder='Ruta de Masca')
+            .form-group
+              label.form__label(for='duration') Duracion del sendero en horas
+              input#duration.form__input(type='number', placeholder='4.5 horas', min="1", step="any")
+            .form-group
+              label.form__label(for='price') Precio del sendero en €
+              input#price.form__input(type='number', placeholder='15 €', min="1", step="any")
+            .form-group
+              label.form__label(for='difficulty') Dificultad del sendero
+              .select-wrapper
+                select#difficulty(class="select")
+                  option(value="facil") Fácil
+                  option(value="medio") Medio
+                  option(value="dificil") Difícil
+            .form-group
+              label.form__label(for='description') Descripción del sendero
+              textarea#description.not-required(rows="6" placeholder="Describe el sendero..")
+        
+          .form-col-group
+            .form-group
+              label.form__label(for='main-location') Municipio al que pertenece el sendero
+              input#main-location.form__input(type='text', placeholder='Buenavista del Norte')
+            .form-group
+              label.form__label(for='start-date') Fecha de inicio
+              input#start-date.form__input(type='datetime-local')
+            .form-group
+              label.form__label(for='image') Imagen del sendero
+              input#image.file-input(type='file', accept='.jpg, .jpeg, .png')
+            .form-group
+              span Ruta del sendero
+              .form-group-wrapper
+                .table-locations
+                  span Coordenadas
+                  span Descripción
+                .locations-container
+                  .locations
+                    input.coordinates.skip-validate(type="text" placeholder='28.5654, -16.2962')
+                    input.desc(type="text" placeholder='Mirador San Juan')
+                .add-more Añadir
+        
+        button.form__create(type='submit') Crear

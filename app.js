@@ -3,6 +3,9 @@ const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
+const formidable = require('formidable');
+const fs = require('fs');
+
 //Morgan permite ver el estado de las peticiones en la terminal
 const morgan = require('morgan');
 
@@ -46,12 +49,22 @@ app.use('/api/senderos', rutasSenderos);
 app.use('/api/usuarios', rutasUsuarios);
 app.use('/api/reviews', rutasReviews);
 
-// app.get('/', (req, res) => {
-  // res.status(200).send('Test para comprobar que el servidor');
-  //En vez de llamar a .json llamamos a .render
-  //No necesitamos especificar la extensión del fichero.
-  // res.status(200).render('base');
-// });
+
+//Esta ruta solo es para la imagen que se envía al crear un sendero
+app.post('/upload', function(req, res) {
+  const form = new formidable.IncomingForm();
+  form.parse(req, function(err, fields, files) {
+    if (err) return res.status(400).json({ error: err.message });
+
+    let oldPath = files.senderoImage.filepath;
+    let newPath = path.join(__dirname , 'assets/img/senderos/' + files.senderoImage.originalFilename);
+    fs.rename(oldPath, newPath, function (err) {
+      if (err) throw err;
+      res.write('File uploaded and moved!');
+      res.end();
+    });
+  });
+});
 
 //Como los middleware se ejecutan en orden, ponemos el de manejo de errores aquí,
 //así los errores que se produzcan en los controladores vendrán a este middleware.

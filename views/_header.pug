@@ -8,6 +8,8 @@ header
         a.user-link.profile(href='/perfil')
           img.user-img(src='/img/usuarios/usuario.png' alt='Foto de perfil de Usuario')
           span.user-name= usuario.name.split(' ')[0]
+        if usuario.role == 'admin'
+          a.user-link(href='/create-sendero') Crear Sendero
         a.user-link.log-out Log out
     else
       .login-links
